@@ -31,11 +31,13 @@
 </body>
 
     <script>
-        const score = {
-            wins : 0,
-            losses : 0,
-            ties : 0
+    
+        const score = JSON.parse(localStorage.getItem("score")) || {
+            wins: 0,
+            losses: 0,
+            ties: 0
         };
+
         function ComputerPick(){
             let pick = Math.random();
 
@@ -99,6 +101,9 @@
             let result = getResult(userMove, computerMove);
             let displayResult = `You picked ${userMove}, Computer picked ${computerMove}. Result : ${result}`;
             let displayScore = `Wins : ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
+
+            localStorage.setItem("score", JSON.stringify(score));
+
             alert(displayResult + '\n' + displayScore);
         }
 
@@ -111,5 +116,7 @@
             score.ties = 0;
             score.losses = 0;
         }
+
+        
     </script>
 </html>
