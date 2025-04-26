@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+    <title>Rock, Paper, Scissors!</title>
+
+    <body>
+        <h2>Rock Paper Scissors</h2>
+
+        <button onclick = "
+        compResponse = pick();
+        result = '';
+        if(compResponse == 'Rock')
+            result = 'Tie!';
+        else if (compResponse == 'Paper')
+            result = 'You Lose!';
+        else
+            result = 'You Win!';
+
+        alert(`You have chosen rock. Computer Chooses ${compResponse}. ${result}`);
+        ">Rock</button>
+
+        <button onclick = "
+        compResponse = pick();
+        result = '';
+        if(compResponse == 'Paper!')
+            result = 'Tie!';
+        else if (compResponse == 'Scissors')
+            result = 'You Lose!';
+        else
+            result = 'You Win!';
+
+        alert(`You have chosen Paper. Computer Chooses ${compResponse}. ${result}`);
+        ">Paper</button>
+
+        <button onclick = "
+        compResponse = pick();
+        result = '';
+        if(compResponse == 'Scissors')
+            result = 'Tie!';
+        else if (compResponse == 'Rock')
+            result = 'You Lose!';
+        else
+            result = 'You Win!'
+
+        alert(`You have chosen Scissors. Computer Chooses ${compResponse}. ${result}`);
+        ">Scissors</button>
+    </body>
+
+    <script>
+        function pick(){
+            choice = Math.random();
+
+            if(choice < 1/3)
+                return "Rock";
+            else if(choice < 2/3)
+                return "Paper";
+            else
+                return "Scissors";
+        }
+    </script>
+</html>

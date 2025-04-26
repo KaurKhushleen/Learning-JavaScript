@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors (objects)</title>
+</head>
+<body>
+    <h3>Rock Paper Scissors (Objects)</h3>
+
+    <button onclick="
+        playGame('Rock')
+        ">Rock</button>
+
+    <button onclick="
+    playGame('Paper')
+    ">Paper</button>
+
+    <button onclick="
+    playGame('Scissors')
+    ">Scissors</button>
+
+    <button onclick = "
+    displayScore();
+    ">View Score</button>
+
+    <button onclick = "
+        resetScore();
+        alert('Score reset successfully!');
+    ">Reset Score</button>
+</body>
+
+    <script>
+        const score = {
+            wins : 0,
+            losses : 0,
+            ties : 0
+        };
+        function ComputerPick(){
+            let pick = Math.random();
+
+            if(pick < 1/3)
+                return 'Rock';
+            else if(pick < 2/3)
+                return 'Paper';
+            else
+                return 'Scissors';
+        }
+
+        function getResult(userMove, compMove){
+            if (userMove == "Rock"){
+                if(compMove == "Rock"){
+                    score.ties++;
+                    return 'Tie.';
+                }
+                else if (compMove == 'Paper'){
+                    score.losses++;
+                    return 'You Lose!';
+                }
+                else{
+                    score.wins++;
+                    return 'You Win!';
+                }
+            }
+
+            else if (userMove == "Paper"){
+                if(compMove == "Paper"){
+                    score.ties++;
+                    return 'Tie.';
+                }
+                else if (compMove == 'Scissors'){
+                    score.losses++;
+                    return 'You Lose!';
+                }
+                else{
+                    score.wins++;
+                    return 'You Win!';
+                }
+            }
+            
+            else{
+                if(compMove == "Scissors"){
+                    score.ties++;
+                    return 'Tie.';
+                }
+                else if (compMove == 'Rock'){
+                    score.losses++;
+                    return 'You Lose!';
+                }
+                else{
+                    score.wins++;
+                    return 'You Win!';
+                }
+            }
+        }
+
+        function playGame(userMove){
+            let computerMove = ComputerPick();
+            let result = getResult(userMove, computerMove);
+            let displayResult = `You picked ${userMove}, Computer picked ${computerMove}. Result : ${result}`;
+            let displayScore = `Wins : ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
+            alert(displayResult + '\n' + displayScore);
+        }
+
+        function displayScore(){
+            alert(`Wins : ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`)
+        }
+
+        function resetScore(){
+            score.wins = 0;
+            score.ties = 0;
+            score.losses = 0;
+        }
+    </script>
+</html>
