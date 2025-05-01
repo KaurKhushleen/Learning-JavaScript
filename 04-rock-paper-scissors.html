@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissors (objects)</title>
+    <title>Rock Paper Scissors (DOM)</title>
 </head>
 <body>
-    <h3>Rock Paper Scissors (Objects)</h3>
+    <h3>Rock Paper Scissors (DOM)</h3>
 
     <button onclick="
         playGame('Rock')
@@ -19,14 +19,14 @@
     <button onclick="
     playGame('Scissors')
     ">Scissors</button>
+    
+    <p class = "js-moves"></p>
+    <p class = "js-result"></p>
+    <p class = "js-score"></p>
 
-    <button onclick = "
-    displayScore();
-    ">View Score</button>
 
     <button onclick = "
         resetScore();
-        alert('Score reset successfully!');
     ">Reset Score</button>
 </body>
 
@@ -37,6 +37,16 @@
             losses: 0,
             ties: 0
         };
+
+        function updateScoreElement(){
+            document.querySelector('.js-score').innerText = `Wins : ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
+        }
+
+        function updateGameInfo(){
+            
+        }
+        updateScoreElement();
+
 
         function ComputerPick(){
             let pick = Math.random();
@@ -104,12 +114,14 @@
 
             localStorage.setItem("score", JSON.stringify(score));
 
-            alert(displayResult + '\n' + displayScore);
+            //alert(displayResult + '\n' + displayScore);
+            document.querySelector('.js-moves').innerText = `You picked ${userMove}, Computer picked ${computerMove}`;
+            document.querySelector('.js-result').innerText = `Result : ${result}`;
+            document.querySelector('.js-score').innerText = `Wins : ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
+
         }
 
-        function displayScore(){
-            alert(`Wins : ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`)
-        }
+        
 
         function resetScore(){
             score.wins = 0;
@@ -117,6 +129,10 @@
             score.losses = 0;
 
             localStorage.removeItem("score");
+
+            document.querySelector('.js-moves').innerText = "";
+            document.querySelector('.js-result').innerText = "";
+            updateScoreElement();
         }
 
         
