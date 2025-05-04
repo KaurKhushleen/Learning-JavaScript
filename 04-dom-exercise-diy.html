@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <title>DOM EXERCISE</title>
+
+    <body>
+        <button>9a</button>
+        <button class = 'js-to-change' onclick = "change9b();">9b</button>
+
+        <br><br><br>
+
+        <button class = "heads" onclick="clickedHeads();">HEADS</button>
+        <button class="tails" onclick="clickedTails();">TAILS</button>
+        <p class = "coin-choice"></p>
+
+        <br><br><br>
+        
+        <input type="text" class="name-input" placeholder="Enter your name" onkeydown="
+        displayNameKeydown();
+        ">
+        <button class="js-submit-name" onclick="
+            displayName();
+            " 
+            >Submit</button>
+        <p class = 'display-name'></p>
+
+        <br><br><br>
+
+        <input type="text" class= 'to-duplicate' placeholder="type something" onkeyup="duplicateText();">
+        <p class = 'duplicate-text'></p>
+    </body>
+
+    <script>
+        function change9b(){
+            let buttonElement = document.querySelector('.js-to-change');
+
+            if(buttonElement.innerHTML === '9b')
+                buttonElement.innerHTML = '9b-changed!';
+            else
+                buttonElement.innerHTML = '9b'
+        }
+
+        function clickedHeads(){
+            document.querySelector('.coin-choice').innerHTML = "You chose HEADS"
+        }
+
+        function clickedTails(){
+            document.querySelector('.coin-choice').innerHTML = "You chose TAILS"
+        }
+
+        function displayName(){
+            let name = document.querySelector('.name-input').value;
+            document.querySelector('.display-name').innerHTML = `Your name is ${name}`;
+        }
+
+        function displayNameKeydown(){
+           if (event.key === 'Enter')
+                displayName();
+        }
+
+        function duplicateText(){
+            let text = document.querySelector('.to-duplicate').value;
+            document.querySelector('.duplicate-text').innerHTML = text;
+        }
+    </script>
+</html>

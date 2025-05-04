@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+    <title>Mini Calculator (woth DOM)</title>
+
+    <body>
+        Calculator
+        <br>
+        <div style="background-color: lightgray; height: 60px; width: 110px; border-radius: 5%;">
+            <p class="calculation"></p>
+            <p class="result"></p>
+        </div>
+ 
+        <br>
+        <button onclick="
+        updateCalculation(this);
+        ">1</button>
+
+        <button onclick="
+        updateCalculation(this);
+        ">2</button>
+
+        <button onclick="
+        updateCalculation(this);
+        ">3</button>
+
+        <button onclick="
+        updateCalculation(this);
+        ">+</button>
+
+        <br>
+        <br>
+        <button onclick="
+        updateCalculation(this);
+        ">4</button>
+
+        <button onclick="
+        updateCalculation(this);
+        ">5</button>
+
+        <button onclick="
+        updateCalculation(this);
+        ">6</button>
+
+        <button onclick="
+        updateCalculation(this);
+        ">-</button>
+
+        <br>
+        <br>
+        <button onclick="
+        updateCalculation(this);
+        ">7</button>
+
+        <button onclick="
+        updateCalculation(this);
+        ">8</button>
+
+        <button onclick="
+       updateCalculation(this);
+        ">9</button>
+
+        <button onclick="
+        updateCalculation(this);
+        ">*</button>
+
+        <br>
+        <br>
+        <button onclick="
+        updateCalculation(this);
+        ">0</button>
+
+        <button onclick="
+        updateCalculation(this);
+        ">.</button>
+
+        <button onclick="
+            Calculate();
+        ">=</button>
+
+        <button onclick="
+        updateCalculation(this);
+        ">/</button>
+
+        <br>
+        <br>
+        <button onclick="
+            clearCalculation();
+        ">Clear</button>
+    </body>
+
+    <script>
+        let calculation = "";
+
+        function updateCalculation(button){
+            calculation += button.innerText;
+            document.querySelector('.calculation').innerText = calculation;
+        }
+
+        function Calculate(){
+        calculation = eval(calculation);
+        document.querySelector('.result').innerText = calculation;
+        }
+
+        function clearCalculation(){
+            calculation = '';
+            document.querySelector('.calculation').innerText = calculation;
+            document.querySelector('.result').innerText = calculation;
+        }
+    </script>
+</html>

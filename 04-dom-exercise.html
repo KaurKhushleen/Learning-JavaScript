@@ -22,7 +22,9 @@
         <br>
         Orders over $40 : FREE Shipping
         <br><br>
-        <input type="text" placeholder="Cost of order" class = "js-order-input">
+        <input type="text" placeholder="Cost of order" class = "js-order-input" onkeydown="
+            if (event.key === 'Enter')
+                calculateOrderCost();">
 
         <button onclick = "
             calculateOrderCost();
@@ -48,7 +50,7 @@
             let inputElement = document.querySelector(".js-order-input");
             let cost = Number(inputElement.value);
             if(cost < 40)
-                cost += 10;
+                cost = (cost * 100 + 1000)/100; //converting to cents so that we get valid value for decimalslike 5.99
             document.querySelector('.total-order-cost').innerHTML = `$${cost}`;
         }
     </script>
