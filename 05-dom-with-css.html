@@ -1,0 +1,105 @@
+
+<html>
+    <head>
+        <title>DOM Exercise</title>
+
+        <style>
+            body{
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+            .subscribe-button{
+                height: 50px;
+                width: 120px;
+                background-color: black;
+                color: white;
+                border-radius: 50px;
+                cursor: pointer;
+                font-size: 15px;
+                padding: 5px 15px;
+                font-weight: bold;
+            }
+
+            .is-subscribed{
+                background-color: rgb(240,240,240);
+                color: black;
+                border: none;
+
+            }
+
+            .order-input{
+                height: 40px;
+                width: 200px;
+                font-size: 15px;
+            }
+
+            .calculate-button{
+                height: 40px;
+                background-color: green;
+                color: white;
+                border : none;
+                border-radius: 5px;
+                font-size: 15px;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        YouTube subscribe button 
+        <br><br>
+        <button onclick = "
+            subscribe();  
+            " class = 'js-subscribe-button subscribe-button' >Subscribe</button>
+
+        <br><br><br>
+
+        Rock Paper Scissors
+        <br><br>
+        <a href="05-dom-css-rock-paper-scissors.html">Click Here</a>
+
+        <br><br><br>
+
+        <h3>Amazon Shipping Calculator</h3>
+        Orders under $40 : +$10 Shipping
+        <br>
+        Orders over $40 : FREE Shipping
+        <br><br>
+        <input type="text" placeholder="Cost of order" class = "js-order-input order-input" onkeydown="
+            if (event.key === 'Enter')
+                calculateOrderCost();">
+
+        <button onclick = "
+            calculateOrderCost();
+        " class = 'js-calculate calculate-button'>Calculate</button>
+
+        <p class = 'total-order-cost'></p>
+
+
+    </body>
+
+
+    <script>
+        function subscribe(){
+            let subscribeButtonElement = document.querySelector('.js-subscribe-button');
+            if (subscribeButtonElement.innerText == 'Subscribe'){ //not using innerHTML so that i only get the text and not white spaces like '    Subscribe '
+                subscribeButtonElement.innerText = 'Unsubscribe';
+                subscribeButtonElement.classList.add('is-subscribed')
+            }
+            else{
+                subscribeButtonElement.innerText = 'Subscribe';
+                subscribeButtonElement.classList.remove('is-subscribed');
+            }
+
+        }
+
+        function calculateOrderCost(){
+            let inputElement = document.querySelector(".js-order-input");
+            let cost = Number(inputElement.value);
+            if(cost < 40)
+                cost = (cost * 100 + 1000)/100; //converting to cents so that we get valid value for decimalslike 5.99
+            document.querySelector('.total-order-cost').innerHTML = `$${cost}`;
+        }
+    </script>
+
+</html>
