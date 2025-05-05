@@ -1,0 +1,121 @@
+<html>
+    <head>
+        <title>DOM with CSS Exercise</title>
+
+        <style>
+            body{
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                font-size: 18px;
+            }
+            .cart-button{
+                background-color: rgb(255,216,20);
+                border-radius: 20px;
+                padding: 8px 20px;
+                font-size: 18px;
+                border:none;
+                margin: 10px 0px;
+            }
+
+            .toggle-button{
+                background-color: black;
+                color: white;
+                border-radius: 3px;
+                padding: 10px 20px;
+                font-size: 18px;
+                border:none;
+                margin: 10px 0px;
+            }
+
+            .is-toggled{
+                background-color: rgb(230,230,230);
+                color: black;
+            }
+
+            .order-input{
+                height: 40px;
+                width: 200px;
+                font-size: 15px;
+                padding: 10px;
+            }
+
+            .calculate-button{
+                height: 40px;
+                background-color: green;
+                color: white;
+                border : none;
+                border-radius: 5px;
+                font-size: 15px;
+            }
+
+            .error-message{
+                color: red;
+                font-weight: 600;
+            }
+
+
+
+        </style>
+    </head>
+
+    <body>
+        
+        <p>
+        <button class="cart-button">Add to Cart</button>
+        </p>
+
+        <p>
+            <button class="toggle-button js-button-1" onclick="
+                toggle('.js-button-1');
+                ">Request now</button>
+            <button class="toggle-button js-button-2" onclick="
+            toggle('.js-button-2');
+            ">Schedule for later</button>
+
+            <button class="toggle-button js-button-3" onclick="
+            toggle('.js-button-3');
+            ">Dummy button</button>
+        </p>
+
+        <input type="text" placeholder="Cost of order" class = "js-order-input order-input" onkeyup="validOrder(this);">
+
+        <button class = 'js-calculate calculate-button'>Calculate</button>
+
+        <p class = 'error-message'></p>
+
+
+    </body>
+
+    <script>
+        function turnOffPreviousButton(){
+            let prevButton = document.querySelector('.is-toggled');
+
+            if(prevButton){
+                prevButton.classList.remove('is-toggled');
+            }
+        }
+
+        function toggle(selected){
+        
+            let b = document.querySelector(selected);
+
+            if(!b.classList.contains("is-toggled")){
+                turnOffPreviousButton();
+                b.classList.add("is-toggled");
+            }else{
+                b.classList.remove('is-toggled');
+            }
+        
+        }
+
+        function validOrder(orderCost){
+           let value = orderCost.value;
+
+            if(Number(value) < 0)
+                document.querySelector('.error-message').innerHTML = 'Error : Cost cannot be less than 0';
+            else
+            document.querySelector('.error-message').innerHTML = '';
+        }
+
+    </script>
+
+</html>

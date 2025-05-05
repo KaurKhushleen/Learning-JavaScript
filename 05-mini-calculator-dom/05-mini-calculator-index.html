@@ -1,14 +1,15 @@
 <!DOCTYPE html>
+<html>
     <head>
         <title>Mini Calculator (woth DOM)</title>
 
-        
+        <link rel="stylesheet" href="05-mini-calculator-style.css">
     </head>
 
     <body>
-        Calculator
-        <br>
-        <div style="background-color: lightgray; height: 60px; width: 110px; border-radius: 5%;">
+        <p class="heading">CALCULATOR</p>
+        
+        <div class="display">
             <p class="calculation"></p>
             <p class="result"></p>
         </div>
@@ -26,7 +27,7 @@
         updateCalculation(this);
         ">3</button>
 
-        <button onclick="
+        <button class = 'operation' onclick="
         updateCalculation(this);
         ">+</button>
 
@@ -44,7 +45,7 @@
         updateCalculation(this);
         ">6</button>
 
-        <button onclick="
+        <button class = 'operation' onclick="
         updateCalculation(this);
         ">-</button>
 
@@ -62,7 +63,7 @@
        updateCalculation(this);
         ">9</button>
 
-        <button onclick="
+        <button class = 'operation' onclick="
         updateCalculation(this);
         ">*</button>
 
@@ -80,7 +81,7 @@
             Calculate();
         ">=</button>
 
-        <button onclick="
+        <button class = 'operation' onclick="
         updateCalculation(this);
         ">/</button>
 
@@ -88,26 +89,8 @@
         <br>
         <button onclick="
             clearCalculation();
-        ">Clear</button>
+        ">Clr</button>
     </body>
 
-    <script>
-        let calculation = "";
-
-        function updateCalculation(button){
-            calculation += button.innerText;
-            document.querySelector('.calculation').innerText = calculation;
-        }
-
-        function Calculate(){
-        calculation = eval(calculation);
-        document.querySelector('.result').innerText = calculation;
-        }
-
-        function clearCalculation(){
-            calculation = '';
-            document.querySelector('.calculation').innerText = calculation;
-            document.querySelector('.result').innerText = calculation;
-        }
-    </script>
+    <script src="05-mini-calculator-script.js"></script>
 </html>

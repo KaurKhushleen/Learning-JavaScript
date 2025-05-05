@@ -1,0 +1,44 @@
+body{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: black;
+}
+
+button{
+  height: 70px;
+  width: 70px;
+  font-size: 30px;
+  color: white;
+  border-radius: 50%;
+  background-color: rgb(50,50,50);
+  border: 0px;
+  margin: 3px;
+}
+
+.heading{
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  margin: 10px;
+}
+
+.display{
+  height: 70px;
+  width: 300px;
+  border-radius: 6px;
+  font-size: 30px;
+  padding: 2px;
+  color: white;
+  margin: 10px;
+}
+
+.calculation{
+  margin: 5px;
+}
+
+.result{
+  margin: 5px;
+}
+
+.operation{
+  background-color: orange;
+}
