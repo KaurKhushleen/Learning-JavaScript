@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title>Learning Arrays</title>
+  </head>
+
+  <body>
+    <p>TO-DO version - 1</p>
+    <input type="text" class="task-input" placeholder="Enter task">
+    <button class="add-button" onclick="addItem();">Add</button>
+
+    <br><br>
+
+    <p>TO-DO version - 2</p>
+    <input type="text" class="js-task-input" placeholder="Enter task">
+    <button class="js-add-button" onclick="displayItem();">Add</button>
+    <p class="js-todo-list"></p>
+  </body>
+
+  <script>
+    let tasks = [];
+    let todoList = [];
+    function addItem(){
+      let task = document.querySelector('.js-task-input').value;
+      tasks.push(task);
+
+      document.querySelector('.task-input').value = "";
+      console.log(tasks);
+    }
+
+    function displayItem(){
+      let html = ''
+      let inputElement = document.querySelector('.js-task-input');
+      let task = inputElement.value;
+      
+      todoList.push(task);
+
+      inputElement.value = '';
+      
+      for(let i = 0; i < todoList.length; i++){
+        html += `<p>${todoList[i]}</p>`;
+      }
+
+      document.querySelector('.js-todo-list').innerHTML = html;
+    }
+  </script>
+</html>
