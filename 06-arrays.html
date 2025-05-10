@@ -16,9 +16,13 @@
     <p class="js-todo-list"></p>
   </body>
 
+
+
   <script>
     let tasks = [];
     let todoList = [];
+
+
     function addItem(){
       let task = document.querySelector('.js-task-input').value;
       tasks.push(task);
@@ -26,6 +30,7 @@
       document.querySelector('.task-input').value = "";
       console.log(tasks);
     }
+
 
     function displayItem(){
       let html = ''
@@ -37,7 +42,23 @@
       inputElement.value = '';
       
       for(let i = 0; i < todoList.length; i++){
-        html += `<p>${todoList[i]}</p>`;
+        html += `<p>${todoList[i]} <button onclick = "
+            deleteItem(${i});
+            "> Delete </button></p>`;
+      }
+
+      document.querySelector('.js-todo-list').innerHTML = html;
+    }   
+
+
+    function deleteItem(item){
+      let html = '';
+      todoList.splice(item, 1);
+
+      for(let j = 0; j < todoList.length; j++){
+        html += `<p>${todoList[j]} <button onclick = "
+            deleteItem(${j});
+            "> Delete </button></p>`;
       }
 
       document.querySelector('.js-todo-list').innerHTML = html;

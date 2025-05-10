@@ -1,0 +1,56 @@
+
+body{
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+.heading{
+  font-size: 50px;
+  margin: 0px;
+  padding-bottom: 30px;
+}
+
+.task-input{
+  width: 280px;
+  padding: 10px;
+}
+
+.date-input{
+  padding: 10px;
+}
+
+.add-button{
+  padding: 13px;
+  width: 100px;
+  font-weight: bold;
+  background-color: green;
+  color: white;
+  border: 0px solid;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.error{
+  height: 20px;
+  padding: 2px;
+  color: crimson;
+}
+
+
+
+.delete-button{
+  color: white;
+  padding: 11px;
+  font-weight: bold;
+  background-color: crimson;
+  border: 0px solid;
+  border-radius: 3px;
+}
+
+.to-do-grid,
+.to-do-input{
+  display: grid;
+  grid-template-columns: 320px 150px 100px;
+  row-gap: 10px;
+  align-items: center;
+}
+
