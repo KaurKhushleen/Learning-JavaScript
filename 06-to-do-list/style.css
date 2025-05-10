@@ -1,6 +1,12 @@
 
 body{
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh; /* Full viewport height */
+  margin-top: 100px;
+  text-align: center; /* Optional: centers inline content like text */
 }
 
 .heading{
@@ -44,6 +50,7 @@ body{
   background-color: crimson;
   border: 0px solid;
   border-radius: 3px;
+  cursor: pointer;
 }
 
 .to-do-grid,
@@ -52,5 +59,10 @@ body{
   grid-template-columns: 320px 150px 100px;
   row-gap: 10px;
   align-items: center;
+  /*text-align: left;*/
 }
 
+.displayed-task{
+  text-align: left;
+  padding-left: 15px;
+}
