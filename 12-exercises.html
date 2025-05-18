@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button onclick="change();">Start</button>
+
+  <br><br>
+
+  <button onclick="add();">Add to cart</button>
+  <p class="display-add"></p>
+
+  <br><br>
+
+  <button class = "add-button" onclick="addMessage();">Add</button>
+  <button class = "remove-button" onclick="removeMessage();">Remove</button>
+</body>
+
+
+
+<script>
+  function change(){
+    document.querySelector("button").innerText = "Loading...."
+      setTimeout(
+        function(){
+          document.querySelector("button").innerText = "Finished"
+        }, 1000);
+  }
+
+
+  function add(){
+    document.querySelector(".display-add").innerHTML = "Added";
+    setTimeout(
+        function(){
+          document.querySelector(".display-add").innerHTML = "";
+        }, 2000);
+  }
+
+  let intervalId;
+
+  function modifyTitle(messages){
+    let titleText = document.querySelector("title");
+    intervalId = setInterval(
+     
+      function(){
+        if(titleText.innerText == "Document")
+          document.querySelector("title").innerText = `(${messages} New Messages)`;
+        else
+          document.querySelector("title").innerText = "Document";
+      },
+      1000
+    )
+  }
+
+  let messages = 0;
+  
+
+  function addMessage(){
+    messages++;
+    if (intervalId)
+      clearInterval(intervalId);
+    modifyTitle(messages);
+  }
+
+  function removeMessage(){
+  if (messages > 1) {
+    messages--;
+    clearInterval(intervalId);
+    intervalId = null;
+    modifyTitle(messages);
+  } else {
+    messages = 0;
+    clearInterval(intervalId);
+    intervalId = null;
+    document.querySelector("title").innerText = "Document";
+  }
+}
+
+ 
+
+  
+</script>
+</html>
