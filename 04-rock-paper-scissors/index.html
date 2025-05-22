@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROCK PAPER SCISSORS (DOM)</title>
+
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>ROCK PAPER SCISSORS (DOM with CSS)</h1>
+
+    <div class="instructions">
+      <h4 class="key-guide-heading">KEY GUIDE</h4>
+      <div class="key-guide-info">r : ✊  p : 🖐️  s : ✌️</div>
+    </div>
+
+
+    <button class="choice-button" , onclick="
+        playGame(ROCK)
+        ">✊</button>
+
+    <button class="choice-button" onclick="
+    playGame(PAPER)
+    ">🖐️</button>
+
+    <button class="choice-button" onclick="
+    playGame(SCISSORS)
+    ">✌️</button>
+
+    <p class="js-moves moves"></p>
+    <p class="js-result result"></p>
+    <p class="js-score score"></p>
+
+
+    <button class="reset-button" onclick="
+        resetScore();
+    ">Reset Score</button>
+
+    <button class="reset-button" onclick="
+      autoPlay();
+      ">
+      Auto Play
+    </button>
+</body>
+
+<script src="script.js"></script>
+
+</html>

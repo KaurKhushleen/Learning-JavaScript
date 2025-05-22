@@ -1,0 +1,59 @@
+body{
+    background-color: rgb(25, 25, 25);
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+
+.instructions {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 30px;
+  padding-bottom: 20px;
+}
+
+
+.key-guide-heading{
+  padding-left: 3px;
+  margin: 0;
+}
+
+.key-guide-info{
+  font-size: 15px;
+}
+
+.choice-button {
+    font-size: 80px;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    border: 5px solid white;
+    background-color: rgb(25, 25, 25);
+    margin: 10px;
+    cursor: pointer;
+}
+
+.moves{
+    font-size: 28px;
+}
+
+.result {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.score {
+    font-size: 20px;
+}
+
+.reset-button {
+    padding: 15px;
+    font-size: 20px;
+    background-color: rgb(25, 25, 25);
+    color: white;
+    outline: none;
+    box-shadow: none;
+    border: 3px solid white;
+    border-radius: 15px;
+}
